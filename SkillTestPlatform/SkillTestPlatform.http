@@ -1,0 +1,119 @@
+@SkillTestPlatform_HostAddress = http://localhost:5068
+
+### CandidateController
+
+@candidateId = candidate1
+
+### Get all
+GET {{SkillTestPlatform_HostAddress}}/candidates
+Accept: application/json
+
+### Get by Id
+GET {{SkillTestPlatform_HostAddress}}/candidates/{{candidateId}}
+Accept: application/json
+
+### Add
+POST {{SkillTestPlatform_HostAddress}}/candidates
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "name1",
+  "surname": "surname1",
+  "phoneNumber": "1234567",
+  "seniority": "Junior"
+}
+
+### Update
+PUT {{SkillTestPlatform_HostAddress}}/candidates
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "{{candidateId}}",
+  "name": "name2",
+  "surname": "surname2",
+  "phoneNumber": "1234567",
+  "seniority": "Senior"
+}
+
+### Delete
+DELETE {{SkillTestPlatform_HostAddress}}/candidates/{{candidateId}}
+Accept: application/json
+
+### SkillController
+
+@skillId = skill1
+
+### Get all
+GET {{SkillTestPlatform_HostAddress}}/skills
+Accept: application/json
+
+### Get by ID
+GET {{SkillTestPlatform_HostAddress}}/skills/{{skillId}}
+Accept: application/json
+
+### Add
+POST {{SkillTestPlatform_HostAddress}}/skills
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "skill1"
+}
+
+### Update
+PUT {{SkillTestPlatform_HostAddress}}/skills
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "{{skillId}}",
+  "name": "skill2"
+}
+
+### Delete
+DELETE {{SkillTestPlatform_HostAddress}}/skills/{{skillId}}
+Accept: application/json
+
+
+### TaskController
+
+@taskId = task1
+
+### Get all
+GET {{SkillTestPlatform_HostAddress}}/tasks
+Accept: application/json
+
+### Get by Id
+GET {{SkillTestPlatform_HostAddress}}/tasks/{{taskId}}
+Accept: application/json
+
+### Add
+POST {{SkillTestPlatform_HostAddress}}/tasks
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "title1",
+  "level": "Mid",
+  "description": "description1",
+  "code": "code1"
+}
+
+### Update
+PUT {{SkillTestPlatform_HostAddress}}/tasks
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "{{taskId}}",
+  "title": "title2",
+  "level": "Senior",
+  "description": "description2",
+  "code": "code2"
+}
+
+### Delete
+DELETE {{SkillTestPlatform_HostAddress}}/tasks/{{taskId}}
+Accept: application/json
