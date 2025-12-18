@@ -31,7 +31,7 @@ namespace SkillTestPlatform.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<TaskItem>> Create([FromBody] TaskItemCreateModel taskItemCreateModel)
+        public async Task<ActionResult<TaskItem>> Add([FromBody] TaskItemCreateModel taskItemCreateModel)
         {
             var task = new TaskItem(taskItemCreateModel);
             await _storageService.AddAsync(task, task.Id);

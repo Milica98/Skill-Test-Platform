@@ -66,7 +66,7 @@ namespace SkillTestPlatform.Services
             }
             catch (RequestFailedException ex)
             {
-                _logger.LogError(ex, "Azure request failed while deleting blob {Id}", id);
+                _logger.LogError(ex, "Request failed while deleting blob {Id}", id);
                 throw;
             }
             catch (Exception ex)
@@ -93,7 +93,7 @@ namespace SkillTestPlatform.Services
             }
             catch (RequestFailedException ex)
             {
-                _logger.LogError(ex, "Azure request failed while fetching blob {Id}", id);
+                _logger.LogError(ex, "Request failed while fetching blob {Id}", id);
                 return default;
             }
             catch (JsonException ex)
@@ -125,7 +125,7 @@ namespace SkillTestPlatform.Services
             }
             catch (RequestFailedException ex)
             {
-                _logger.LogError(ex, "Azure request failed while fetching blobs");
+                _logger.LogError(ex, "Request failed while fetching blobs");
                 throw;
             }
             catch (JsonException ex)
@@ -153,7 +153,7 @@ namespace SkillTestPlatform.Services
             }
             catch (RequestFailedException ex)
             {
-                _logger.LogError(ex, "Azure request failed while updating blob {Id}", id);
+                _logger.LogError(ex, "Request failed while updating blob {Id}", id);
                 throw;
             }
             catch (JsonException ex)

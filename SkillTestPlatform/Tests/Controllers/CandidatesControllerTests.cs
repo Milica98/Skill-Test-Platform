@@ -66,13 +66,13 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Create_ReturnsCreatedAtAction()
+        public async Task Add_ReturnsCreatedAtAction()
         {
             var candidate = GetCandidateCreateModel("Name3", "Surname3", "12345", Seniority.Junior);
             _mockStorageService.Setup(s => s.AddAsync(It.IsAny<Candidate>(), It.IsAny<string>()))
                         .Returns(Task.CompletedTask);
 
-            var result = await _controller.Create(candidate);
+            var result = await _controller.Add(candidate);
 
             var createdResult = result.Result as CreatedAtActionResult;
             Assert.IsNotNull(createdResult);
@@ -93,7 +93,7 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Delete_ReturnsNoContent_WhenDeleted()
+        public async Task Delete_WhenDeleted_ReturnsNoContent()
         {
             _mockStorageService.Setup(s => s.DeleteAsync("1")).ReturnsAsync(true);
 
@@ -103,7 +103,7 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Delete_ReturnsNotFound_WhenNotDeleted()
+        public async Task Delete_WhenNotDeleted_ReturnsNotFound()
         {
             _mockStorageService.Setup(s => s.DeleteAsync("99")).ReturnsAsync(false);
 

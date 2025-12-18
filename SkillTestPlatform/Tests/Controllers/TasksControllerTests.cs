@@ -67,14 +67,14 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Create_ReturnsCreatedAtAction()
+        public async Task Add_ReturnsCreatedAtAction()
         {
             var task = GetTaskCreateModel("Title 5", Seniority.Senior, "Description 5", "Code5");
 
             _mockStorageService.Setup(r => r.AddAsync(It.IsAny<TaskItem>(), It.IsAny<string>()))
                      .Returns(Task.CompletedTask);
 
-            var result = await _controller.Create(task);
+            var result = await _controller.Add(task);
 
             var createdResult = result.Result as CreatedAtActionResult;
             Assert.IsNotNull(createdResult);

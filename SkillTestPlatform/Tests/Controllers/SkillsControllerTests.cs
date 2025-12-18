@@ -42,7 +42,7 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Get_ById_ReturnsOk_WhenSkillExists()
+        public async Task Get_ById_WhenSkillExists_ReturnsOk()
         {
             var skill = new Skill { Name = "Java" };
             _mockStorageService.Setup(s => s.GetAsync(skill.Id)).ReturnsAsync(skill);
@@ -55,7 +55,7 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Get_ById_ReturnsNotFound_WhenSkillDoesNotExist()
+        public async Task Get_ById_WhenSkillDoesNotExist_ReturnsNotFound()
         {
             _mockStorageService.Setup(s => s.GetAsync("99")).ReturnsAsync((Skill?)null);
 
@@ -65,13 +65,13 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Create_ReturnsCreatedAtAction()
+        public async Task Add_ReturnsCreatedAtAction()
         {
             var skill = new SkillCreateModel { Name = "Python" };
             _mockStorageService.Setup(s => s.AddAsync(It.IsAny<Skill>(), It.IsAny<string>()))
                         .Returns(Task.CompletedTask);
 
-            var result = await _controller.Create(skill);
+            var result = await _controller.Add(skill);
 
             var createdResult = result.Result as CreatedAtActionResult;
             Assert.IsNotNull(createdResult);
@@ -92,7 +92,7 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Delete_ReturnsNoContent_WhenDeleted()
+        public async Task Delete_WhenDeleted_ReturnsNoContent()
         {
             _mockStorageService.Setup(s => s.DeleteAsync("1")).ReturnsAsync(true);
 
@@ -102,7 +102,7 @@ namespace SkillTestPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task Delete_ReturnsNotFound_WhenNotDeleted()
+        public async Task Delete_WhenNotDeleted_ReturnsNotFound()
         {
             _mockStorageService.Setup(s => s.DeleteAsync("99")).ReturnsAsync(false);
 
